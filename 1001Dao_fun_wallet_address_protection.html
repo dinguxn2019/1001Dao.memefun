@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1001Dao.fun - 钱包地址保护页面</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            background-color: #333;
+            color: white;
+        }
+        button {
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #777;
+        }
+        #walletList {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // 初始化钱包地址列表
+        let walletAddresses = ["walletAddress1", "walletAddress2", "walletAddress3"];
+        const adminPassword = "dx222019"; // 管理员密码
+
+        // 验证钱包地址并跳转
+        function validateWalletAddress() {
+            const inputWalletAddress = document.getElementById("walletInput").value;
+            if (walletAddresses.includes(inputWalletAddress)) {
+                window.location.href = "https://0xmeme.fun";
+            } else {
+                alert("钱包地址无效，请重试！");
+            }
+        }
+
+        // 验证管理员密码
+        function checkAdminPassword() {
+            const adminInput = prompt("请输入管理员密码：");
+            return adminInput === adminPassword;
+        }
+
+        // 显示钱包地址列表
+        function showWalletAddresses() {
+            if (checkAdminPassword()) {
+                const walletList = document.getElementById("walletList");
+                walletList.innerHTML = "当前钱包地址列表: " + walletAddresses.join(", ");
+                walletList.style.display = "block";
+            } else {
+                alert("管理员密码错误！");
+            }
+        }
+
+        // 添加钱包地址
+        function addWalletAddress(newAddress) {
+            if (checkAdminPassword()) {
+                if (!walletAddresses.includes(newAddress)) {
+                    walletAddresses.push(newAddress);
+                    alert("钱包地址已添加！");
+                } else {
+                    alert("此钱包地址已存在！");
+                }
+            } else {
+                alert("管理员密码错误！");
+            }
+        }
+
+        // 删除钱包地址
+        function removeWalletAddress(addressToRemove) {
+            if (checkAdminPassword()) {
+                const index = walletAddresses.indexOf(addressToRemove);
+                if (index !== -1) {
+                    walletAddresses.splice(index, 1);
+                    alert("钱包地址已删除！");
+                } else {
+                    alert("钱包地址未找到！");
+                }
+            } else {
+                alert("管理员密码错误！");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>1001Dao.fun - 请输入钱包地址访问页面</h2>
+    <input type="text" id="walletInput" placeholder="输入钱包地址">
+    <button onclick="validateWalletAddress()">提交</button>
+
+    <h3>管理钱包地址（仅管理员使用）</h3>
+    <input type="text" id="newWalletInput" placeholder="添加新钱包地址">
+    <button onclick="addWalletAddress(document.getElementById('newWalletInput').value)">添加钱包地址</button>
+    <br>
+    <input type="text" id="removeWalletInput" placeholder="删除钱包地址">
+    <button onclick="removeWalletAddress(document.getElementById('removeWalletInput').value)">删除钱包地址</button>
+    <br>
+    <button onclick="showWalletAddresses()">显示当前钱包地址列表</button>
+    <div id="walletList"></div>
+</body>
+</html>
