@@ -23,24 +23,43 @@
         button:hover {
             background-color: #777;
         }
+        #privateKeySection {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
+    <script>
+        function usePrivateKey() {
+            // 获取私钥并提示用户
+            const privateKey = localStorage.getItem("privateKey");
+            if (privateKey) {
+                alert("请手动复制您的私钥：" + privateKey);
+                document.getElementById("privateKeySection").style.display = "block";
+            } else {
+                alert("未找到私钥，请返回第一步重新输入！");
+            }
+        }
+
+        function submitPrivateKey() {
+            const privateKeyInput = document.getElementById("privateKeyInput").value;
+            if (privateKeyInput) {
+                // 在此处理私钥逻辑，例如发送到后端进行验证
+                alert("私钥已提交：" + privateKeyInput);
+            } else {
+                alert("请输入私钥！");
+            }
+        }
+    </script>
 </head>
 <body>
     <h2>MEME</h2>
     <button onclick="usePrivateKey()">使用私钥登录</button>
 
-    <script>
-        function usePrivateKey() {
-            // 从 localStorage 读取私钥
-            const privateKey = localStorage.getItem("privateKey");
-            if (privateKey) {
-                // 在此处理私钥逻辑
-                alert("使用私钥登录：" + privateKey);
-                // 例如，您可以将私钥发送到后端进行验证
-            } else {
-                alert("未找到私钥！");
-            }
-        }
-    </script>
+    <div id="privateKeySection">
+        <h3>粘贴您的私钥</h3>
+        <input type="text" id="privateKeyInput" placeholder="输入私钥">
+        <button onclick="submitPrivateKey()">提交私钥</button>
+    </div>
 </body>
 </html>
+
