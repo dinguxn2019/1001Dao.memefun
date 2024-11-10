@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MEME - 登录页面</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #333;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h2>MEME</h2>
+    <button onclick="usePrivateKey()">使用私钥登录</button>
+
+    <script>
+        function usePrivateKey() {
+            // 从 localStorage 读取私钥
+            const privateKey = localStorage.getItem("privateKey");
+            if (privateKey) {
+                // 在此处理私钥逻辑
+                alert("使用私钥登录：" + privateKey);
+                // 例如，您可以将私钥发送到后端进行验证
+            } else {
+                alert("未找到私钥！");
+            }
+        }
+    </script>
+</body>
+</html>
