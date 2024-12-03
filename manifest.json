@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "MEME Auto Fill",
+  "version": "1.0",
+  "description": "Auto fill private key",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "*://*.0xmeme.fun/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.0xmeme.fun/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 

