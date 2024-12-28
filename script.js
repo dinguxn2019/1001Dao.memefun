@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function isValidWalletAddress(address) {
         return address === "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm" || 
                address === "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH" ||
-               address === "F2MbRb3BaqHZwWw9Mv8DW1dBhBbncDbRK9pNnLMEW1Wa";
+               address === "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp";
     }
 
     // 验证私钥格式
