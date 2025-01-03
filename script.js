@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const VALID_WALLET_ADDRESSES = [
         "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm",
-        "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH",
+        "BHBGj1hH5vinhnSStZBGeLraVdDLdEfLy8YFwLZGHf7t",
         "F2MbRb3BaqHZwWw9Mv8DW1dBhBbncDbRK9pNnLMEW1Wa",
         "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp"
     ];
